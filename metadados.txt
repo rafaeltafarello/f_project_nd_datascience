@@ -64,7 +64,7 @@ Citation Request:
    7 - total sulfur dioxide (mg / dm^3)
    8 - density (g / cm^3)
    9 - pH
-   10 - sulphates (potassium sulphate - g / dm3)
+   10 - sulphates (potassium sulphate - g / dm^3)
    11 - alcohol (% by volume)
    Output variable (based on sensory data): 
    12 - quality (score between 0 and 10)

@@ -223,6 +223,7 @@ Now we can  plot this 4ºtop correlated features, witout the outliers to each fea
 # Bivariate Plots Section
 ```{r echo=FALSE, Bivariate_Plots}
 ggplot(data = s_wine, aes(x = alcohol,y = quality))+
+  xlab("alcohol (% by volume)")
   geom_point()
 ```
 
@@ -239,29 +240,33 @@ g1 <- ggplot(data = s_wine, aes(x = quality_factor,
                               y = alcohol))+
   geom_boxplot()+
   geom_smooth(method='lm', aes(group = 1))+
+  ylab("alcohol (% by volume)")+
   xlab('Wine Quality')
 
 g2 <- ggplot(data = s_wine, aes(x = quality_factor,
                               y = volatile.acidity))+
   geom_boxplot()+
   geom_smooth(method='lm', aes(group = 1))+
+  ylab("volatile acetic acid (g / dm^3)")+
   xlab('Wine Quality')
 
 g3 <- ggplot(data = s_wine, aes(x = quality_factor,
                               y = citric.acid))+
   geom_boxplot()+
   geom_smooth(method='lm', aes(group = 1))+
-  xlab('Wine Quality')
+  xlab('Wine Quality')+
+  ylab('citric acid (g / dm^3)')
 
 
 g4 <- ggplot(data = s_wine, aes(x = quality_factor,
                               y = sulphates))+
   geom_boxplot()+
   geom_smooth(method='lm', aes(group = 1))+
-  xlab('Wine Quality')
+  xlab('Wine Quality')+
+  ylab('K2S04 (g / dm^3)')
 
 
-grid.arrange(g1,g2,g3,g4, ncol = 2)
+grid.arrange(g1,g2,g3,g4, ncol = 4)
 
 ```
 
@@ -283,7 +288,9 @@ g1<-ggplot(data= s_wine, aes(x = alcohol, y = volatile.acidity))+
   geom_vline(xintercept = mean(wine$alcohol),
              linetype=2, color='blue', alpha=.5)+
   geom_hline(yintercept = mean(wine$volatile.acidity),
-             linetype=2, color='blue', alpha=.5)
+             linetype=2, color='blue', alpha=.5)+
+  ylab("volatile acetic acid (g / dm^3)")+
+  xlab("alcohol (% by volume)")
 
 g2<-ggplot(data= s_wine, aes(x = alcohol, y = citric.acid))+
   coord_cartesian(xlim = c(quantile(wine$alcohol,.01),
@@ -294,7 +301,9 @@ g2<-ggplot(data= s_wine, aes(x = alcohol, y = citric.acid))+
   geom_vline(xintercept = mean(wine$alcohol),
              linetype=2, color='blue', alpha=.5)+
   geom_hline(yintercept = mean(wine$citric.acid),
-             linetype=2, color='blue', alpha=.5)
+             linetype=2, color='blue', alpha=.5)+
+  ylab('citric acid (g / dm^3)')+
+  xlab("alcohol (% by volume)")
 
 
 g3<-ggplot(data= s_wine, aes(x = volatile.acidity, 
@@ -307,7 +316,9 @@ g3<-ggplot(data= s_wine, aes(x = volatile.acidity,
   geom_vline(xintercept = mean(wine$volatile.acidity),
              linetype=2, color='blue', alpha=.5)+
   geom_hline(yintercept = mean(wine$citric.acid),
-             linetype=2, color='blue', alpha=.5)
+             linetype=2, color='blue', alpha=.5)+
+  ylab('citric acid (g / dm^3)')+
+  xlab("volatile acetic acid (g / dm^3)")
 
 grid.arrange(g1,g2,g3,ncol=1)
 
@@ -343,7 +354,8 @@ ggplot(data = s_wine, aes(x = quality_factor,
                               y = alcohol))+
   geom_boxplot()+
   geom_smooth(method='lm', aes(group = 1))+
-  xlab('Wine Quality')
+  xlab('Wine Quality')+
+  ylab("alcohol (% by volume)")
 
 ```
 
@@ -361,7 +373,9 @@ ggplot(data= s_wine, aes(x = alcohol, y = volatile.acidity))+
   geom_vline(xintercept = mean(wine$alcohol),
              linetype=2, color='blue', alpha=.5)+
   geom_hline(yintercept = mean(wine$volatile.acidity),
-             linetype=2, color='blue', alpha=.5)
+             linetype=2, color='blue', alpha=.5)+
+  ylab('volatile acetic acid (g / dm^3)')+
+  xlab('alcohol (% by volume)')
 ```
 
 ### Alcohol vs Volatile.acidity
